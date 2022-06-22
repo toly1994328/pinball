@@ -1,4 +1,4 @@
-package com.toly1994.pinb_all
+package com.toly1994.pinball
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,6 +1,6 @@
 {
-    "name": "pinb_all",
-    "short_name": "pinb_all",
+    "name": "pinball",
+    "short_name": "pinball",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

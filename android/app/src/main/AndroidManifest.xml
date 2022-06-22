@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.toly1994.pinb_all">
+    package="com.toly1994.pinball">
    <application
-        android:label="pinb_all"
+        android:label="pinball"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

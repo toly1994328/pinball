@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.toly1994" "\0"
-            VALUE "FileDescription", "pinb_all" "\0"
+            VALUE "FileDescription", "pinball" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pinb_all" "\0"
+            VALUE "InternalName", "pinball" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.toly1994. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pinb_all.exe" "\0"
-            VALUE "ProductName", "pinb_all" "\0"
+            VALUE "OriginalFilename", "pinball.exe" "\0"
+            VALUE "ProductName", "pinball" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
