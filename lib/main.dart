@@ -15,7 +15,7 @@ void main() {
     final authenticationRepository = AuthenticationRepository(firebaseAuth);
     final pinballAudioPlayer = PinballAudioPlayer();
     final platformHelper = PlatformHelper();
-    await Firebase.initializeApp();
+    // await Firebase.initializeApp();
     await authenticationRepository.authenticateAnonymously();
     return App(
       authenticationRepository: authenticationRepository,

@@ -32,18 +32,24 @@ class AssetsManagerCubit extends Cubit<AssetsManagerState> {
       ),
     );
 
-    late void Function() _triggerLoad;
-    _triggerLoad = () async {
-      if (loadables.isEmpty) return;
-      final loadable = loadables.removeAt(0);
-      await loadable();
-      _triggerLoad();
-      emit(state.copyWith(loaded: state.loaded + 1));
-    };
 
-    const _throttleSize = 3;
-    for (var i = 0; i < _throttleSize; i++) {
-      _triggerLoad();
+    for(var task in loadables){
+      await task();
+      emit(state.copyWith(loaded: state.loaded + 1));
     }
+
+    // late void Function() _triggerLoad;
+    // _triggerLoad = () async {
+    //   if (loadables.isEmpty) return;
+    //   final loadable = loadables.removeAt(0);
+    //   await loadable();
+    //   _triggerLoad();
+    //   emit(state.copyWith(loaded: state.loaded + 1));
+    // };
+    //
+    // const _throttleSize = 3;
+    // for (var i = 0; i < _throttleSize; i++) {
+    //   _triggerLoad();
+    // }
   }
 }

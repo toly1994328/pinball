@@ -18,7 +18,8 @@ class GoogleWordAnimatingBehavior extends TimerComponent
     } else {
       timer.stop();
       bloc.onReset();
-      shouldRemove = true;
+      removeFromParent();
+      // shouldRemove = true;
     }
   }
 }

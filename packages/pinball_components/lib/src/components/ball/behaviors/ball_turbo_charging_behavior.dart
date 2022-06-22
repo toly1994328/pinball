@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flame/components.dart';
 import 'package:pinball_components/pinball_components.dart';
-import 'package:pinball_flame/pinball_flame.dart';
+import 'package:pinball_flame/pinball_flame.dart' hide ParentIsA;
 
 /// {@template ball_turbo_charging_behavior}
 /// Puts the [Ball] in flames and [_impulse]s it.

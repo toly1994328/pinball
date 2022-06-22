@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:pinball_components/pinball_components.dart';
 import 'package:pinball_components/src/components/android_bumper/behaviors/behaviors.dart';
 import 'package:pinball_components/src/components/bumping_behavior.dart';
-import 'package:pinball_flame/pinball_flame.dart';
-
+import 'package:pinball_flame/pinball_flame.dart' hide ParentIsA;
 export 'cubit/android_bumper_cubit.dart';
 
 /// {@template android_bumper}

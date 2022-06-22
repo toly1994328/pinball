@@ -54,12 +54,11 @@ enum PinballAudio {
 
 /// Defines the contract of the creation of an [AudioPool].
 typedef CreateAudioPool = Future<AudioPool> Function(
-  String sound, {
-  bool? repeating,
-  int? maxPlayers,
-  int? minPlayers,
-  String? prefix,
-});
+    String sound, {
+      AudioCache? audioCache,
+      int minPlayers,
+      required int maxPlayers,
+    });
 
 /// Defines the contract for playing a single audio.
 typedef PlaySingleAudio = Future<void> Function(String, {double volume});
@@ -167,7 +166,6 @@ class _SingleAudioPool extends _Audio {
     pool = await createAudioPool(
       prefixFile(path),
       maxPlayers: maxPlayers,
-      prefix: '',
     );
   }
 
@@ -200,12 +198,10 @@ class _RandomABAudio extends _Audio {
         createAudioPool(
           prefixFile(audioAssetA),
           maxPlayers: 4,
-          prefix: '',
         ).then((pool) => audioA = pool),
         createAudioPool(
           prefixFile(audioAssetB),
           maxPlayers: 4,
-          prefix: '',
         ).then((pool) => audioB = pool),
       ],
     );
@@ -259,8 +255,8 @@ class PinballAudioPlayer {
     ConfigureAudioCache? configureAudioCache,
     Random? seed,
   })  : _createAudioPool = createAudioPool ?? AudioPool.create,
-        _playSingleAudio = playSingleAudio ?? FlameAudio.audioCache.play,
-        _loopSingleAudio = loopSingleAudio ?? FlameAudio.audioCache.loop,
+        _playSingleAudio = playSingleAudio ?? FlameAudio.play,
+        _loopSingleAudio = loopSingleAudio ?? FlameAudio.loop,
         _preCacheSingleAudio =
             preCacheSingleAudio ?? FlameAudio.audioCache.load,
         _configureAudioCache = configureAudioCache ??
@@ -369,8 +365,8 @@ class PinballAudioPlayer {
 
   /// Loads the sounds effects into the memory.
   List<Future<void> Function()> load() {
+    FlameAudio.audioCache.prefix='';
     _configureAudioCache(FlameAudio.audioCache);
-
     return audios.values.map((a) => a.load).toList();
   }
 

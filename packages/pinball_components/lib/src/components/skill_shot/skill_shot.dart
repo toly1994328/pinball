@@ -3,7 +3,7 @@ import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/material.dart';
 import 'package:pinball_components/pinball_components.dart';
 import 'package:pinball_components/src/components/skill_shot/behaviors/behaviors.dart';
-import 'package:pinball_flame/pinball_flame.dart';
+import 'package:pinball_flame/pinball_flame.dart' hide ParentIsA;
 
 export 'cubit/skill_shot_cubit.dart';
 

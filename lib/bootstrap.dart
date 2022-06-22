@@ -21,8 +21,8 @@ class AppBlocObserver extends BlocObserver {
 }
 
 typedef BootstrapBuilder = Future<Widget> Function(
-  FirebaseFirestore firestore,
-  FirebaseAuth firebaseAuth,
+  FirebaseFirestore? firestore,
+  FirebaseAuth? firebaseAuth,
 );
 
 Future<void> bootstrap(BootstrapBuilder builder) async {
@@ -36,8 +36,8 @@ Future<void> bootstrap(BootstrapBuilder builder) async {
       await BlocOverrides.runZoned(
         () async => runApp(
           await builder(
-            FirebaseFirestore.instance,
-            FirebaseAuth.instance,
+            null,
+            null,
           ),
         ),
         blocObserver: AppBlocObserver(),
