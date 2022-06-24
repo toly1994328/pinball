@@ -17,10 +17,8 @@ import 'package:share_repository/share_repository.dart';
 class PinballGamePage extends StatelessWidget {
   const PinballGamePage({
     Key? key,
-    this.isDebugMode = kDebugMode,
   }) : super(key: key);
 
-  final bool isDebugMode;
 
   @override
   Widget build(BuildContext context) {
@@ -30,17 +28,7 @@ class PinballGamePage extends StatelessWidget {
     final shareRepository = context.read<ShareRepository>();
     final platformHelper = context.read<PlatformHelper>();
     final gameBloc = context.read<GameBloc>();
-    final game = isDebugMode
-        ? DebugPinballGame(
-            characterThemeBloc: characterThemeBloc,
-            audioPlayer: audioPlayer,
-            leaderboardRepository: leaderboardRepository,
-            shareRepository: shareRepository,
-            l10n: context.l10n,
-            platformHelper: platformHelper,
-            gameBloc: gameBloc,
-          )
-        : PinballGame(
+    final game =  PinballGame(
             characterThemeBloc: characterThemeBloc,
             audioPlayer: audioPlayer,
             leaderboardRepository: leaderboardRepository,
